@@ -1,0 +1,24 @@
+@mixin btn {
+     padding: 1em;
+     border: 0;
+     background-color: $darkpurple;
+     color: white;
+     text-transform: uppercase;
+     border-radius: 15px;
+     margin: 1em 0;
+     font-weight: 700;
+     letter-spacing: 1px;
+
+     &:hover {
+          background-color: $violet;
+     }
+}
+
+@mixin textArea {
+     background-color: rgba(255, 255, 255, .7);
+     padding: 1em;
+     max-width: 60em;
+     margin: 1em auto;
+     border: 1px solid $cyan;
+     border-radius: 20px;
+}

@@ -1,0 +1,199 @@
+//These are all the base styles in the document.
+
+/* ------ Normalization ------ */
+html {
+     box-sizing: border-box;
+     font-size: 16px;
+     background-color: white;
+}
+
+
+/* ------ Background and typography ------ */
+body {
+     background-image: url(../images/rainbowleavesmobile.png);
+     background-position: bottom;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     margin: 0;
+     
+}
+
+p {
+     color: $darkpurple;
+     font-family: $sans, sans-serif;
+     font-size: 1em;
+     font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+     font-family: $sans, sans-serif;
+     color: $darkpurple;
+     text-align: center;
+}
+
+h1 {font-size: 2em;}
+h2 {font-size: 1.75em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1em;}
+h5 {font-size: .8em;}
+h6 {font-size: .6em;}
+
+
+/* ------ General Elements ------ */
+.page,
+.homepage {
+     width: 95%; 
+     margin: 0 auto;
+}
+
+footer {
+     text-align: center;
+     margin-top: 2em;
+     border-top: 2px solid $darkpurple;
+}
+
+.usericon {
+     height: 30px;
+}
+
+
+/* ------ Text ------ */
+
+#site-title {
+    font-family: $script;
+    font-size: 3em;
+    padding: 0;
+    margin: .5em;
+}
+
+.instructions {
+     font-size: .75em;
+     font-style: italic;
+}
+
+
+/* ------ Forms ------ */
+.btn {
+     @include btn;
+
+     a {
+         color: white;
+         text-decoration: none;
+     }
+}
+
+.addComment {
+     background-color: $violet;
+
+     &:hover {
+         background-color: $teal;
+     }
+}
+
+.addReply {
+     background-color: $cyan;
+}
+
+.edit {
+     background-color: $lime;
+}
+
+.delete {
+     background-color: $pink;
+}
+
+// Login form for mobile
+.sidebar {
+     background-color: $violet;
+     color: white;
+     padding: .5em;
+    
+
+     .loginImg,
+     .loginHeading {
+          display: none;
+     }
+
+     
+     
+     .formText {
+          border: 0;
+          border-bottom: 1px solid white;
+          background-color: transparent;
+          color: white;
+          padding: .5em .25em;
+          margin: 0 .25em;
+          
+
+          &::-webkit-input-placeholder { /* Edge */
+               color: white;
+           }
+          &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+               color: white;
+           }
+          &::placeholder {
+               color: white;
+           }
+     }
+
+     .login {
+          background-color: white;
+          color: $violet;
+          padding: .5em;
+          border-radius: 10px;
+     }
+
+     #authMsg {
+         color: red;
+         font-weight: 700;
+     }
+}
+
+.formBtns {
+    display: inline;
+}
+
+#commentForm {
+    @include textArea;
+    
+    h3 {
+        text-align: left;
+   }
+
+   textarea {
+       border-radius: 15px;
+       border: 1px solid $violet;
+       padding: .5em;
+       font-family: $sans;
+       width: 95%;
+   }
+}
+
+
+/* ------ Pages ------ */
+
+.post {
+     @include textArea;
+}
+
+.commentsSection {
+     width: 90%;
+     max-width: 60em;
+     margin: 1em auto;
+     
+
+     h2 {
+          text-align: left;
+     }
+}    
+
+.comment,
+.response {
+     @include textArea;
+     
+}
+
+.response {
+     margin-left: 5em;
+}
+

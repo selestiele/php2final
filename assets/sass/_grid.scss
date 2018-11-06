@@ -1,0 +1,177 @@
+@media screen and (min-width: 49em) {
+// the CSS Grid styles will go here.
+
+
+     html {
+          font-size: 18px;
+     }
+
+     body {
+          background-image: url(../images/rainbowLeavesdesktop.png);
+     }
+
+     .usericon {
+          height: 50px;
+     }
+
+     #site-title {
+          font-size: 4em;
+     }
+
+     //Main page grid
+     .homepage {
+          width: 95%;
+          max-width: 80em;
+          display: grid;
+          grid-template-areas: 
+               "title title"
+               "post login"
+               "post ."
+               "comments comments"
+               "comments comments"
+               "form form"
+               "footer footer";
+     }
+
+     header {
+          display: grid;
+          grid-area: title;
+          
+     }
+
+     footer {
+          display: grid;
+          grid-area: footer;
+          
+     }
+
+     .post {
+          display: grid;
+          grid-area: post;
+          
+     }
+
+     .commentsSection {
+          display: grid;
+          grid-area: comments;
+          
+          h2 {
+               grid-column: 1/4;
+               grid-row: 1/2;
+          }
+
+          .comment,
+          .response {
+               display: grid;
+               grid-column: 1/4;
+               grid-template-columns: 10% 60% 30%;
+               grid-template-areas: 
+               "icon title ."
+               "body body body"
+               ". . btns";
+
+               .usericon {
+                    display: grid;
+                    grid-area: icon;
+               }
+
+               .usertitle {
+                    display: grid;
+                    grid-area: title;
+               }
+
+               .commentBody {
+                    display: grid;
+                    grid-area: body;
+               }
+               
+               .formBtns {
+                    display: grid;
+                    grid-area: btns;
+               }
+          }
+
+          #commentForm {
+               display: grid;
+               grid-area: form;
+          }
+     }
+
+
+     
+
+     
+
+     // login form for tablet (landscape) and larger screens
+     .sidebar {
+          @include textArea;
+          margin: 1em;
+          color: $darkpurple;
+          display: grid;
+          grid-area: login;
+          grid-template-areas:
+               "heading heading"
+               "username username"
+               "password password"
+               ". submit";
+
+          #loginFormHeader {
+               display: grid;
+               grid-area: heading;
+               grid-template-areas: 
+                    "img heading";
+               margin-bottom: 1em;
+          }
+
+          .loginImg {
+               display: grid;
+               grid-area: img;
+          }
+
+          .loginHeading {
+               display: grid;
+               grid-area: heading;
+               text-transform: uppercase;
+               color: $darkpurple;
+               font-family: $sans;
+               font-weight: 700;
+          }
+
+          #username {
+               display: grid;
+               grid-area: username;
+               color: $darkpurple;
+               border-bottom: 1px solid $darkpurple;
+               margin: .5em 0;
+
+               &::placeholder {
+                    color: $darkpurple;
+               }
+          }
+
+          #password {
+               display: grid;
+               grid-area: password;
+               color: $darkpurple;
+               border-bottom: 1px solid $darkpurple;
+               margin: .5em 0;
+
+               &::placeholder {
+                    color: $darkpurple;
+               }
+          }
+
+          .login {
+               display: grid;
+               grid-area: submit;
+               @include btn;
+               background-color: $violet;
+          
+
+               &:hover {
+                    background-color: $teal;
+               }
+
+          }
+     }
+}
