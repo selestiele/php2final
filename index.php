@@ -32,8 +32,10 @@ switch($action) {
         $comments = allComments(); //returns a multidimensional array with the number of affected rows in first index and the comments array in the second index
         $numComments = $comments[0];
         $commentArray = $comments[1];
-        $authMessage = "";
         $showReplyForm = FALSE;
+        if (!isset($_SESSION['authMessage'])):
+            $_SESSION['authMessage'] = "";
+        endif;
         include 'post.php';
         break;
 
@@ -51,7 +53,7 @@ switch($action) {
         $_SESSION = array();
         session_destroy();
         $authMessage = 'You have been logged out.';
-        include 'logout.php';
+        include 'admin/logout.php';
         break;    
     
 

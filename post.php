@@ -20,7 +20,7 @@ include 'view/header.php';
             <img src="assets/images/rainbowleaveslogin.png" alt="rainbow leaves" class="loginImg">
                <p class="loginHeading">User Login</p>
           </div>
-          <p id="authMsg"><?php echo $authMessage; ?></p>
+          <p id="authMsg"><?php echo $_SESSION['authMessage']; ?></p>
           <form action="admin/login.php" method="post" id="loginForm">
                     <input type="text" name="username" placeholder="Username" class="loginText formText" id="username">
                     <input type="password" name="password" placeholder="Password" class="loginText formText" id="password">
@@ -31,7 +31,7 @@ include 'view/header.php';
             <img src="assets/images/rainbowleaveslogin.png" alt="rainbow leaves" class="loginImg">
             <p class="loginHeading"><?php echo 'Welcome, ' . $_SESSION['user']; ?></p>
         </div>
-          <form action="../index.php" method="post" id="logout">
+          <form action="index.php" method="post" id="logout">
                <input type="hidden" name="action" value="logout">
                <input type="submit" value="Logout" class="btn login">
           </form>
@@ -66,7 +66,11 @@ include 'view/header.php';
             <!-- User linked here -->
             <p class="usertitle"><?php echo $comment['userID'];?> says:</p>
             <p class="responseDate">
-                <?php echo $comment['commentDate']; ?></p>
+                <?php 
+                    $commentDateFormatted = new DateTime($comment['commentDate']);
+                    $commentDate = $commentDateFormatted->format('F, j, Y');
+                    $commentTime = $commentDateFormatted->format('g:i a');
+                    echo $commentDate . '<br>' . $commentTime; ?></p>
             <!-- Comment body -->
             <div class="commentBody">
                 <?php echo addTags($comment['commentText']); ?>
@@ -115,7 +119,11 @@ include 'view/header.php';
                     <div class="response">
                         <img src="assets/images/<?php echo $reply['userID'];?>icon.png" alt="avatar for user" class="usericon">
                         <p class="usertitle"><?php echo $reply['userID']; ?> says:</p>
-                        <p class="responseDate"><?php echo $reply['replyDate']; ?></p>
+                        <p class="responseDate"><?php 
+                            $replyDateFormatted = new DateTime($reply['replyDate']);
+                            $replyDate = $replyDateFormatted->format('F, j, Y');
+                            $replyTime = $replyDateFormatted->format('g:i a');
+                            echo $replyDate . '<br>' . $replyTime; ?></p>
                         <div class="commentBody">
                             <?php echo addTags($reply['replyText']); ?>
                         </div>

@@ -57,7 +57,7 @@ function updateComment($commentID, $updated, $text) {
 
 function deleteComment($commentID) {
      global $db;
-     $query = 'DELETE from comments
+     $query = 'DELETE FROM comments
                WHERE commentID = :commentID';
      $statement = $db->prepare($query);
      $statement->bindValue(':commentID', $commentID);

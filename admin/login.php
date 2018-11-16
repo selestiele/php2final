@@ -35,6 +35,7 @@ if ($pwValidated) {
      header("Location: ../index.php");
 } else {
      $authMessage = "Your username or password was incorrect.";
-     include '../post.php';
+     $_SESSION['authMessage'] = $authMessage;
+     header("Location: .. ");
 }
 ?>

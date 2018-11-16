@@ -1,4 +1,8 @@
 <?php 
+// Start session if one hasn't already been started
+if (!isset($_SESSION)) {
+     session_start();
+} 
 
 require('../model/database.php');
 require('../model/repliesDB.php');
@@ -19,11 +23,12 @@ switch ($action) {
 
      case 'addReply':
           $user = filter_input(INPUT_POST, 'userID');
+          $commentID = filter_input(INPUT_POST, 'commentID');
           $now = new DateTime();
           $submitted = $now->format('Y-m-d h:i:s');
           $text = filter_input(INPUT_POST, 'replyText');
 
-          addReply($user, $submitted, $text);
+          addReply($user, $submitted, $commentID, $text);
           
           header('Location: ../index.php ');
           break;
@@ -41,8 +46,7 @@ switch ($action) {
           $now = new DateTime();
           $updated = $now->format('Y-m-d h:i:s');
 
-          updateReply($replyID, $updated, $text);
-          
+          updateReply($replyID, $updated, $text);          
           header("Location: .. ");
           break;
      
