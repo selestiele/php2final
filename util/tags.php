@@ -21,7 +21,7 @@ function addTags($text) {
                $p = str_replace("\n", '</li>', $p);
           } else {
                // Add <p> tags
-               $p = '<p class="commentBody">' . $p . '</p>';
+               $p = '<p>' . $p . '</p>';
           }
 
           $text .= $p;

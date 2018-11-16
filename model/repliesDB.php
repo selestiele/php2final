@@ -33,9 +33,16 @@ function addReply($user, $submitted, $text) {
 
 }
 
-function editReply($replyID, $updated, $text) {
+
+function editReply($replyID) {
 
 }
+
+
+function updateReply($replyID, $updated, $text) {
+
+}
+
 
 function deleteReply($replyID) {
      

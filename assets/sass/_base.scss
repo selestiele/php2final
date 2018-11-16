@@ -39,6 +39,15 @@ h5 {font-size: .8em;}
 h6 {font-size: .6em;}
 
 
+ul {
+    font-family: $sans;
+    color: $darkpurple;
+    font-size: 1em;
+}
+
+
+
+
 /* ------ General Elements ------ */
 .page,
 .homepage {
@@ -46,14 +55,14 @@ h6 {font-size: .6em;}
      margin: 0 auto;
 }
 
-footer {
-     text-align: center;
-     margin-top: 2em;
-     border-top: 2px solid $darkpurple;
-}
+
 
 .usericon {
      height: 30px;
+}
+
+.commentCount {
+    margin: 0;
 }
 
 
@@ -94,12 +103,17 @@ footer {
      background-color: $cyan;
 }
 
-.edit {
+.editBtn {
      background-color: $lime;
 }
 
-.delete {
+.deleteBtn {
      background-color: $pink;
+}
+
+#replyForm {
+    display: block;
+    width: 100%;
 }
 
 // Login form for mobile
@@ -153,7 +167,7 @@ footer {
     display: inline;
 }
 
-#commentForm {
+.commentForm {
     @include textArea;
     
     h3 {
@@ -165,6 +179,8 @@ footer {
        border: 1px solid $violet;
        padding: .5em;
        font-family: $sans;
+       font-size: 1em;
+       line-height: 1.6;
        width: 95%;
    }
 }
@@ -197,3 +213,11 @@ footer {
      margin-left: 5em;
 }
 
+
+/* ------ Footer ------ */
+footer {
+    text-align: center;
+    margin-top: 2em;
+    border-top: 2px solid $darkpurple;
+    background-color: rgba(255,255,255,.5);
+}

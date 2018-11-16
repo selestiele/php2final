@@ -54,6 +54,8 @@
      .commentsSection {
           display: grid;
           grid-area: comments;
+          width: 100%;
+          margin: 0;
           
           h2 {
                grid-column: 1/4;
@@ -62,13 +64,15 @@
 
           .comment,
           .response {
+               width: 100%;
                display: grid;
                grid-column: 1/4;
                grid-template-columns: 10% 60% 30%;
                grid-template-areas: 
                "icon title ."
                "body body body"
-               ". . btns";
+               // ". btns btns"
+               ;
 
                .usericon {
                     display: grid;
@@ -80,22 +84,46 @@
                     grid-area: title;
                }
 
+               .responseDate {
+                    text-align: right;
+               }
+
                .commentBody {
                     display: grid;
                     grid-area: body;
                }
                
                .formBtns {
-                    display: grid;
-                    grid-area: btns;
+                    //grid-area: btns;
+                    //text-align: right;
+                    
                }
-          }
 
-          #commentForm {
-               display: grid;
-               grid-area: form;
+               #deleteComment,
+               #deleteReply {
+                    display: inline;
+                    text-align: right;
+               }
+
+               #replyComment {
+                    display: inline;
+                    text-align: left;
+               }
+
+               #editComment,
+               #editReply {
+                    display: inline;
+                    text-align: right;
+               }
+               
           }
      }
+
+     #commentForm {
+          display: grid;
+          grid-area: form;
+     }
+     
 
 
      

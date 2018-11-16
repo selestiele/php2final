@@ -32,7 +32,7 @@ $pwValidated = verifyPassword($user, $pw);
 if ($pwValidated) {
      $_SESSION['verifiedUser'] = TRUE;
      $_SESSION['user'] = $user;
-     include '../index.php?action=loggedIn';
+     header("Location: ../index.php");
 } else {
      $authMessage = "Your username or password was incorrect.";
      include '../post.php';
